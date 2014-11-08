@@ -2,6 +2,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        this.showHomeScreen();
     },
     // Bind Event Listeners
     //
@@ -16,6 +17,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        console.log('##################### device ready...');
         Tissu.start();
     },
     // Update DOM on a Received Event
@@ -28,7 +30,37 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+
+    // Application data.
+    currentScreenId: 'id-screen-home',
+
+    // ------------- Public application functions ------------- //
+
+    showScreen: function(screenId)
+    {
+        // Hide current screen if set.
+        if (this.currentScreenId != null)
+        {
+            $('#' + this.currentScreenId).hide();
+        }
+
+        // Show new screen.
+        this.currentScreenId = screenId;
+        $('#' + this.currentScreenId).show();
+        document.body.scrollTop = 0;
+    },
+
+    showHomeScreen: function()
+    {
+        this.showScreen('id-screen-home');
+    },
+
+    showLocatingScreen: function()
+    {
+        this.showScreen('id-screen-locating');
     }
+
 };
 
 app.initialize();
