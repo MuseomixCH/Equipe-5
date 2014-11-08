@@ -46,7 +46,7 @@ var beacons = [
     },
     {
         "id": 6,
-        "major":33704,
-        "minor":30477
+        "major":39039,
+        "minor":48346
     },
 ];
