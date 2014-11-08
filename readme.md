@@ -1,3 +1,6 @@
-# Tissus Subjectif
+# estimote cordova
 
-prototype réalisé dans le cadre du [muséomix](http://leman.museomix.ch/) 2014 (MAH, Musée d'Art et d'Histoire Genève)
+## to install estimote plugin run following in project directory:
+
+			cordova plugin add https://github.com/divineprog/phonegap-estimotebeacons 
+
