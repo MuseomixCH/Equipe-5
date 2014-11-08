@@ -2,7 +2,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        this.showHomeScreen();
+        this.showFirstObjectScreen();
     },
     // Bind Event Listeners
     //
@@ -55,10 +55,17 @@ var app = {
     {
         this.showScreen('id-screen-home');
     },
-
     showLocatingScreen: function()
     {
         this.showScreen('id-screen-locating');
+    },
+    showObjectScreen: function()
+    {
+        this.showScreen('id-screen-object');
+    },
+    showFirstObjectScreen: function()
+    {
+        this.showScreen('id-screen-firstObject');
     }
 
 };
