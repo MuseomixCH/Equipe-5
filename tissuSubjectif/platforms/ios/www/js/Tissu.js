@@ -1,7 +1,24 @@
 
 var Tissu = (function(){
     var Tissu = {},
-        beacons = [];
+        tissuBeacons = [];
+
+    Tissu.proximityNames = [
+        'unknown',
+        'immediate',
+        'near',
+        'far'];
+
+    function formatProximity(proximity){
+        if (!proximity) { return 'Unknown'; }
+
+        // Eliminate bad values (just in case).
+        proximity = Math.max(0, proximity);
+        proximity = Math.min(3, proximity);
+
+        // Return name for proximity.
+        return Tissu.proximityNames[proximity];
+    }
 
     function findBeaconDescriptorForBeacon(beacon){
         return _.first(_.filter(beaconDescriptors, function(d){ return d.major === beacon.major }));
@@ -23,6 +40,10 @@ var Tissu = (function(){
         return beacons;
     }
 
+    function findTissuBeaconWithId(tissuBeacons, tissuId){
+        return _.find(tissuBeacons, {tissuId : tissuId});
+    }
+
     function onRange(beaconInfo){
         console.log('onRange----------------------------');
           // Sort beacons by distance.
@@ -31,13 +52,20 @@ var Tissu = (function(){
         beaconInfo.beacons.sort(function(beacon1, beacon2) {
             return beacon1.distance > beacon2.distance; });
 
-        beacons = addTissuIdToBeacons(beaconInfo);
+        tissuBeacons = addTissuIdToBeacons(beaconInfo);
 
+        //console.log(_.first(tissuBeacons));
 
-        console.log(_.first(beacons));
+        
+        var targetBeaconId = 2;
 
- 
-        //displayBeconInfo(beaconInfo);
+        var beacon = findTissuBeaconWithId(tissuBeacons, targetBeaconId);
+        var proximity = _.isUndefined(beacon) ? "unknown" : formatProximity(beacon.proximity);
+
+        if (! _.isUndefined(beacon)){
+            console.log(beacon.distance);
+        }
+        console.log(proximity);
     }
 
     function onError(errorMessage){
