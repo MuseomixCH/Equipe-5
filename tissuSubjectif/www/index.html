@@ -25,18 +25,49 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" type="text/css" href="css/onsen-css-components.css" />
         <title>Tissu subjectif</title>
     </head>
     <body>
-        <div id="id-screen-home" class="page">
-            this is the home screen !<p>
-            <div ontouchend="app.showLocatingScreen()">next screen</div>
+        <div id="id-screen-firstObject" class="style-screen">
+            <br />
+            <div class="name">
+                Nom du premier objet
+            </div>
+            <div class="desc">
+                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.<br /><br />orem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.
+            </div>
+            <div class="choices" ontouchend="app.showLocatingScreen()">
+                <li>choice 1</li>
+                <li>choice 2</li>
+                <li>choice 3</li>
+                <li>choice 4</li>
+            </div>
         </div>
 
         <div id="id-screen-locating" class="style-screen">
-            <br /><div class="style-button-back style-color-blueberry"
-                ontouchend="app.showHomeScreen()">Back</div>
+            <br />
+            <div>
+                <img src="img/map.png" class="map">
+            </div>
+            <div class="status" ontouchend="app.showObjectScreen()">
+                froid
+            </div>
+        </div>
+
+        <div id="id-screen-object" class="style-screen">
+            <br />
+            <div class="name">
+                Nom de l'objet
+            </div>
+            <div class="desc">
+                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet 
+            </div>
+            <div class="choices">
+                <li>choice 1</li>
+                <li>choice 2</li>
+                <li>choice 3</li>
+                <li>choice 4</li>
+            </div>
         </div>
 
         <script type="text/javascript" src="js/jquery.min.js"></script>

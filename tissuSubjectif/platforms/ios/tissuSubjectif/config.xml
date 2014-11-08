@@ -37,4 +37,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <gap:config-file overwrite="true" parent="UIViewControllerBasedStatusBarAppearance" platform="ios">
+        <false />
+    </gap:config-file>
 </widget>
