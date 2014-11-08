@@ -8,5 +8,10 @@ var Model = (function(){
         return _.filter(relations, filterF);
     }; 
 
+
+    Model.objectForId = function(id){
+        return _.find(objects, {id: id});
+    };
+
     return Model;
 })();

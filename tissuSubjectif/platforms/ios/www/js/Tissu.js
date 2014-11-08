@@ -1,13 +1,17 @@
 
 var Tissu = (function(){
     var Tissu = {},
-        tissuBeacons = [];
+        tissuBeacons = [],
+        currentTissuId = -1,
+        onWarm,
+        onFound;
 
     Tissu.proximityNames = [
         'unknown',
         'immediate',
         'near',
         'far'];
+
 
     function formatProximity(proximity){
         if (!proximity) { return 'Unknown'; }
@@ -44,6 +48,7 @@ var Tissu = (function(){
         return _.find(tissuBeacons, {tissuId : tissuId});
     }
 
+    // test cb function, obsolete
     function onRange(beaconInfo){
         console.log('onRange----------------------------');
           // Sort beacons by distance.
@@ -53,18 +58,43 @@ var Tissu = (function(){
             return beacon1.distance > beacon2.distance; });
 
         tissuBeacons = addTissuIdToBeacons(beaconInfo);
-
-        //console.log(_.first(tissuBeacons));
-
-        
-        var targetBeaconId = 2;
-
-        var beacon = findTissuBeaconWithId(tissuBeacons, targetBeaconId);
+    
+        var beacon = findTissuBeaconWithId(tissuBeacons, currentTissuId);
         var proximity = _.isUndefined(beacon) ? "unknown" : formatProximity(beacon.proximity);
 
-        if (! _.isUndefined(beacon)){
-            console.log(beacon.distance);
+        if(proximity == Tissu.proximityNames[3]){
+            onWarm();
         }
+
+        if(proximity == Tissu.proximityNames[1] || proximity == Tissu.proximityNames[1]){
+            onFound();
+        }
+
+        console.log(proximity);
+        
+    }
+
+    function onSearch(beaconInfo){
+        console.log('onRange----------------------------');
+        // Sort beacons by distance.
+
+        
+        beaconInfo.beacons.sort(function(beacon1, beacon2) {
+            return beacon1.distance > beacon2.distance; });
+
+        tissuBeacons = addTissuIdToBeacons(beaconInfo);
+    
+        var beacon = findTissuBeaconWithId(tissuBeacons, currentTissuId);
+        var proximity = _.isUndefined(beacon) ? "unknown" : formatProximity(beacon.proximity);
+
+        if(proximity == Tissu.proximityNames[3]){
+            onWarm();
+        }
+
+        if(proximity == Tissu.proximityNames[1] || proximity == Tissu.proximityNames[1]){
+            onFound();
+        }
+
         console.log(proximity);
     }
 
@@ -72,6 +102,23 @@ var Tissu = (function(){
         console.log('Range error: ' + errorMessage);
     }
 
+    Tissu.startSearchingForTissuId = function(tissuId){
+
+        currentTissuId = tissuId;
+
+        EstimoteBeacons.requestAlwaysAuthorization();
+
+        EstimoteBeacons.startRangingBeaconsInRegion(
+            {}, // Empty region matches all beacons.
+            onSearch,
+            onError);
+    }
+
+    Tissu.stopSearch = function(){
+        EstimoteBeacons.stopRangingBeaconsInRegion({});
+    }
+
+    // obsolete
     Tissu.start = function(){
         EstimoteBeacons.requestAlwaysAuthorization();
 
@@ -79,6 +126,11 @@ var Tissu = (function(){
             {}, // Empty region matches all beacons.
             onRange,
             onError);
+    }
+
+    Tissu.registerCallbacks = function(onWarmCb, onFoundCb){
+        onWarm = onWarmCb;
+        onFound = onFoundCb;
     }
 
 

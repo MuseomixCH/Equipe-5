@@ -220,11 +220,6 @@ var relations = [
         "name": "nuit"
     },
 	{
-        "from": 20,
-        "to":1,
-        "name": "out"
-    },
-	{
         "from": 9,
         "to":27,
         "name": "ouverture"
@@ -343,11 +338,6 @@ var relations = [
         "from": 29,
         "to":31,
         "name": "tyrannosaure"
-    },
-	{
-        "from": 4,
-        "to":0,
-        "name": "vega"
     },
 	{
         "from": 27,
