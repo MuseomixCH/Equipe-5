@@ -77,7 +77,6 @@ var Tissu = (function(){
     function onSearch(beaconInfo){
         console.log('onRange----------------------------');
         // Sort beacons by distance.
-
         
         beaconInfo.beacons.sort(function(beacon1, beacon2) {
             return beacon1.distance > beacon2.distance; });

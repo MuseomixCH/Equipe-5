@@ -10,9 +10,12 @@ var app = {
         console.log("initialize");
         this.bindEvents();
         this.showScreen();
+        Tissu.registerCallbacks(this.onWarm, this.onFound);
     },
     currentId: 1,
+    currentSearchId:-1,
     state: states.object_description,
+    currentScreenId: 'id-screen-home',
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
@@ -32,6 +35,15 @@ var app = {
     foo: function(){
         console.log("foo-------------------------------------");
     },
+    onWarm: function(){
+        $('#id-screen-locating .status').html("chaud");
+        this.state = states.search_warm;
+    },
+    onFound: function(){
+        this.state = states.object_description;
+        this.currentId = this.currentSearchId;
+        this.showScreen();
+    },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -45,7 +57,7 @@ var app = {
     },
 
     // Application data.
-    currentScreenId: 'id-screen-home',
+    
 
     // ------------- Public application functions ------------- //
 
@@ -66,6 +78,9 @@ var app = {
         switch(this.state){
             case states.object_description:
                 this.populateObjectDescription();
+                break;
+            case states.search_cold:
+                this.populateSearchCold();
                 break;
         }
     },
@@ -89,6 +104,10 @@ var app = {
         });
     },
 
+    populateSearchCold: function(){
+        // TODO change map
+    },
+
     createChoiceHTML: function(relation){
         var htm = '<li ';
         htm += 'ontouchend="app.startSearchFor(' + relation.to +  ')">';
@@ -98,7 +117,14 @@ var app = {
     },
 
     startSearchFor: function(id){
-        console.log("next screen " + id);
+        window.alert("next screen " + id);
+
+        var object = Model.objectForId(id);
+
+        this.currentSearchId = id;
+        this.state = states.search_cold;
+        this.showScreen();
+        Tissu.startSearchingForTissuId(object.beaconId);
     }, 
 
     showHomeScreen: function()

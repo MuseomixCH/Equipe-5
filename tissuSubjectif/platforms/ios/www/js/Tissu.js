@@ -78,6 +78,7 @@ var Tissu = (function(){
         console.log('onRange----------------------------');
         // Sort beacons by distance.
 
+        window.alert(currentTissuId);
         
         beaconInfo.beacons.sort(function(beacon1, beacon2) {
             return beacon1.distance > beacon2.distance; });
@@ -86,6 +87,8 @@ var Tissu = (function(){
     
         var beacon = findTissuBeaconWithId(tissuBeacons, currentTissuId);
         var proximity = _.isUndefined(beacon) ? "unknown" : formatProximity(beacon.proximity);
+
+        window.alert(proximity);
 
         if(proximity == Tissu.proximityNames[3]){
             onWarm();

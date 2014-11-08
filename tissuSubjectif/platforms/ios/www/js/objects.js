@@ -253,7 +253,7 @@ var objects = [
         "image": "img.jpg",
         "sound": "pouet.mp3",
         "description": "bla",
-        "beaconId": -1,
+        "beaconId": 2,
     }, {
         "id": 36,
         "name": "Trou de sondage dans le mur",
