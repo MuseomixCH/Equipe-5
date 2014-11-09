@@ -84,6 +84,7 @@ function populateObjectDescription(){
 
 function populateSearchCold(){
     // TODO change map
+    $('#id-screen-locating .status').html("froid");
 }
 
 function createChoiceHTML(relation){

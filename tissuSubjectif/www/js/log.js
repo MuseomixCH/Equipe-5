@@ -7,7 +7,7 @@ var L = (function(){
     }
 
     L.apLog = function(toLog){
-        domLog.innerHTML += toLog + "<br>";
+        //domLog.innerHTML += toLog + "<br>";
     }
 
     return L;
