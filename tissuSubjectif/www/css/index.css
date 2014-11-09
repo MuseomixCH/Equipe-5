@@ -84,9 +84,11 @@ body {
 .status {
     font-size: 24px;
     text-align: center;
+    font-weight: bold;
 }
 
 .desc {
+    font-size: 20px;
     position: absolute;
     top: 130px;
     overflow-y: scroll;
@@ -104,8 +106,16 @@ body {
     max-width:100%;
 }
 
+.warm {
+    color: red;
+}
+
+.cold{
+    color: blue;
+}
+
 .style-screen {
-    padding: 5px;
+    padding: 15px;
     display:none;
 }
 

@@ -34,7 +34,7 @@ var showScreen = function(){
 };
 
 function onWarm(){
-    $('#id-screen-locating .status').html("chaud");
+    $('#id-screen-locating .status').html("chaud").removeClass('cold').addClass('warm');
     state = states.search_warm;
 }
 
@@ -84,6 +84,7 @@ function populateObjectDescription(){
 
 function populateSearchCold(){
     // TODO change map
+    $('#id-screen-locating .status').html("froid").removeClass('warm').addClass('cold');
 }
 
 function createChoiceHTML(relation){
