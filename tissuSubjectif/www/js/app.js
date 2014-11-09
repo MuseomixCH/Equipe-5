@@ -4,18 +4,118 @@ var states = {
     search_warm: "id-screen-locating"
 }
 
+var currentId = 1;
+var currentSearchId = -1;
+var currentScreenId = 'id-screen-home';
+
+var state = states.object_description;
+
+var showScreen = function(){
+    // Hide current screen if set.
+    $('.style-screen').hide();
+
+
+    var screenId = this.state;
+    // Show new screen.
+    currentScreenId = screenId;
+    $('#' + currentScreenId).show();
+    document.body.scrollTop = 0;
+
+    L.apLog(" " + currentScreenId + " " + state); 
+
+    switch(state){
+        case states.object_description:
+            populateObjectDescription();
+            break;
+        case states.search_cold:
+            populateSearchCold();
+            break;
+    }
+};
+
+function onWarm(){
+    $('#id-screen-locating .status').html("chaud");
+    state = states.search_warm;
+}
+
+function onFound(){
+    //L.apLog("on found");
+    if (state == states.object_description) return;
+
+    currentScreenId = state;
+    state = states.object_description;
+    currentId = currentSearchId;
+
+    //L.apLog(" " + currentScreenId + " " + state);
+    //setInterval(showScreen, 60);
+    //showScreenFound();
+
+    // danger
+    $('.style-screen').hide();
+
+
+    // Show new screen.
+    currentScreenId = state;
+    $('#' + currentScreenId).show();
+    document.body.scrollTop = 0;
+
+    L.apLog(currentId + " " + currentScreenId + " " + state); 
+    populateObjectDescription();
+}
+
+function populateObjectDescription(){
+    var object = Model.objectForId(this.currentId);
+
+    L.apLog( "popu description " + currentId + " " + object.name);
+
+    $('#id-screen-object .desc').html(object.description);
+    $('#id-screen-object .name').html(object.name);
+
+    var relations = Model.relationsForObjectId(currentId);
+
+    $('#id-screen-object .choices').html("");
+
+    $.each(relations, function(index, relation){
+        var element = $(createChoiceHTML(relation));
+
+        $('#id-screen-object .choices').append(element);
+    });
+}
+
+function populateSearchCold(){
+    // TODO change map
+}
+
+function createChoiceHTML(relation){
+    var htm = '<li ';
+    htm += 'ontouchend="startSearchFor(' + relation.to +  ')">';
+    htm += relation.name;
+    htm += "</li>"
+    return htm;
+}
+
+function startSearchFor(id){
+    //window.alert("next screen " + id);
+
+    var object = Model.objectForId(id);
+
+    currentSearchId = id;
+    state = states.search_cold;
+    showScreen();
+    Tissu.startSearchingForTissuId(object.beaconId);
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
         console.log("initialize");
         this.bindEvents();
-        this.showScreen();
-        Tissu.registerCallbacks(this.onWarm, this.onFound);
+        showScreen();
+        Tissu.registerCallbacks(onWarm, onFound);
+        Tissu.start();
     },
-    currentId: 1,
-    currentSearchId:-1,
-    state: states.object_description,
-    currentScreenId: 'id-screen-home',
+    
+
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
@@ -30,20 +130,12 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         console.log('##################### device ready...');
-        Tissu.start();
+        
     },
     foo: function(){
         console.log("foo-------------------------------------");
     },
-    onWarm: function(){
-        $('#id-screen-locating .status').html("chaud");
-        this.state = states.search_warm;
-    },
-    onFound: function(){
-        this.state = states.object_description;
-        this.currentId = this.currentSearchId;
-        this.showScreen();
-    },
+    
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -59,73 +151,7 @@ var app = {
     // Application data.
     
 
-    // ------------- Public application functions ------------- //
-
-    showScreen: function()
-    {
-        // Hide current screen if set.
-        if (this.currentScreenId != null)
-        {
-            $('#' + this.currentScreenId).hide();
-        }
-
-        var screenId = this.state;
-        // Show new screen.
-        this.currentScreenId = screenId;
-        $('#' + this.currentScreenId).show();
-        document.body.scrollTop = 0;
-
-        switch(this.state){
-            case states.object_description:
-                this.populateObjectDescription();
-                break;
-            case states.search_cold:
-                this.populateSearchCold();
-                break;
-        }
-    },
-
-    populateObjectDescription: function(){
-        var object = Model.objectForId(this.currentId);
-   
-        $('#id-screen-object .desc').html(object.description);
-        $('#id-screen-object .name').html(object.name);
-
-        var relations = Model.relationsForObjectId(this.currentId);
-
-        $('#id-screen-object .choices').html("");
-
-        var that = this;
-
-        $.each(relations, function(index, relation){
-            var element = $(that.createChoiceHTML(relation));
-
-            $('#id-screen-object .choices').append(element);
-        });
-    },
-
-    populateSearchCold: function(){
-        // TODO change map
-    },
-
-    createChoiceHTML: function(relation){
-        var htm = '<li ';
-        htm += 'ontouchend="app.startSearchFor(' + relation.to +  ')">';
-        htm += relation.name;
-        htm += "</li>"
-        return htm;
-    },
-
-    startSearchFor: function(id){
-        window.alert("next screen " + id);
-
-        var object = Model.objectForId(id);
-
-        this.currentSearchId = id;
-        this.state = states.search_cold;
-        this.showScreen();
-        Tissu.startSearchingForTissuId(object.beaconId);
-    }, 
+    // ------------- Public application functions ------------- // 
 
     showHomeScreen: function()
     {
