@@ -91,7 +91,7 @@ function populateSearchCold(){
     // TODO change map
     $('#id-screen-locating .status').html("froid").removeClass('warm').addClass('cold');
 
-    var image = "img/MX_Maps-" + this.currentId + ".png";
+    var image = "img/MX_Maps-" + currentSearchId + ".png";
 
     $('#id-screen-locating .map').attr('src', image);
 }
