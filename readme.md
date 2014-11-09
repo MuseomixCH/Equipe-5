@@ -17,7 +17,7 @@ see [blog post](http://www.museomix.org/prototypes/tissus-subjectifs/)
 - Nathalie Meistre
 - Xavier Righetti
 - Julien Andrey
-- Dimitri Delcour
+- Dimitri Delcourt
 - David Hodgetts 
 
 
