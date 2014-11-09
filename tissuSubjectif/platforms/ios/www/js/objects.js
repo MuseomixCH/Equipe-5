@@ -262,10 +262,10 @@ var objects = [
         "beaconId": 8
     }, {
         "id": 37,
-        "name": "Un vide, à remplir ou non",
+        "name": "START",
         "image": "img.jpg",
         "sound": "pouet.mp3",
-        "description": "Le vide parfait n'existe pas sur Terre. Avec un total de 104 km de lignes sous vide, le LHC du CERN représente l’un des systèmes à vide les plus grands du monde",
+        "description": "Contemplez un objet de votre poche.<br>Ensuite, laissez-vous porter par le mot qui vous inspire.<br>La destination correpondante se trouve sur la carte.",
         "beaconId": 9
     }, {
         "id": 38,

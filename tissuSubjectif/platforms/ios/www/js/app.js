@@ -115,12 +115,20 @@ function startSearchFor(id){
     Tissu.startSearchingForTissuId(object.beaconId);
 }
 
+function startIt(){
+    $("#id-screen-start").hide();
+    showScreen();
+}
+
+document.ontouchstart = function(e){ e.preventDefault(); }
+
 var app = {
     // Application Constructor
     initialize: function() {
         console.log("initialize");
         this.bindEvents();
-        showScreen();
+        //showScreen();
+        //showStart();
         Tissu.registerCallbacks(onWarm, onFound);
         Tissu.start();
     },

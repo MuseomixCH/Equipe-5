@@ -82,6 +82,7 @@ body {
 }
 
 .status {
+    margin-top: 50px;
     font-size: 24px;
     text-align: center;
     font-weight: bold;
@@ -170,4 +171,11 @@ h1 {
  
 #id-screen-found {
     display:none;
+}
+
+#id-screen-start{
+    height:100%;
+    width:100%;
+    position: fixed;
+    background-image: url("../img/splash.small.png");
 }

@@ -24,17 +24,22 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Tissu subjectif</title>
     </head>
     <body>
         <p id="log"></p>
+
+        <div id="id-screen-start" class="" ontouchend="startIt()">&nbsp;</div>
+        
+
         <div id="id-screen-locating" class="style-screen">
             <br />
             <div>
                 <img src="" class="map">
             </div>
-            <div class="status" ontouchend="app.showObjectScreen()">
+            <div class="status">
                 froid
             </div>
         </div>
