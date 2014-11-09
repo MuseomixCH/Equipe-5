@@ -67,7 +67,7 @@ function onFound(){
 function populateObjectDescription(){
     var object = Model.objectForId(this.currentId);
 
-    L.apLog( "popu description " + currentId + " " + object.name);
+    //L.apLog( "popu description " + currentId + " " + object.name);
 
     $('#id-screen-object .desc').html(object.description);
     $('#id-screen-object .name').html(object.name);
@@ -90,6 +90,10 @@ function populateObjectDescription(){
 function populateSearchCold(){
     // TODO change map
     $('#id-screen-locating .status').html("froid").removeClass('warm').addClass('cold');
+
+    var image = "img/MX_Maps-" + this.currentId + ".png";
+
+    $('#id-screen-locating .map').attr('src', image);
 }
 
 function createChoiceHTML(relation){
