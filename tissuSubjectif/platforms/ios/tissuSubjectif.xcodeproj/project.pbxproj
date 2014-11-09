@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -25,7 +26,10 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		3A28E7FC6F084E8CA8E7D2B2 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F65E10D987E847D4AE3F2815 /* CDVDevice.m */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		5F92F9B71891465FBE9B56FB /* EstimoteBeacons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C70883EAD204E5394C73C47 /* EstimoteBeacons.m */; };
+		6D85D8986BD84A42B54E8C6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8998918A8A34FA887FFC2A7 /* CoreLocation.framework */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
 		7E7966E01810823500FA85AD /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
@@ -36,14 +40,11 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		3A28E7FC6F084E8CA8E7D2B2 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F65E10D987E847D4AE3F2815 /* CDVDevice.m */; };
 		9E68A1094E874EFF96AAA1FD /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6267B74FC3C14B5FB1865CE1 /* CDVLogger.m */; };
 		CB52755BB90744479A13E13E /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5308FCFBA4630A1A84389 /* libEstimoteSDK.a */; };
-		5F92F9B71891465FBE9B56FB /* EstimoteBeacons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C70883EAD204E5394C73C47 /* EstimoteBeacons.m */; };
-		F99408735E004EA5A6DF492D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEF66B5D14449CF89500EFC /* CoreBluetooth.framework */; };
-		6D85D8986BD84A42B54E8C6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8998918A8A34FA887FFC2A7 /* CoreLocation.framework */; };
+		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F634F06334A54D0481A0D6B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650E66F246B349F5A2AF0B39 /* SystemConfiguration.framework */; };
+		F99408735E004EA5A6DF492D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEF66B5D14449CF89500EFC /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,14 +65,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C70883EAD204E5394C73C47 /* EstimoteBeacons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EstimoteBeacons.m; path = pl.makingwaves.estimotebeacons/EstimoteBeacons.m; sourceTree = "<group>"; };
+		164CC7133EE44500B5AD4896 /* ESTBeaconFirmwareVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESTBeaconFirmwareVO.h; path = pl.makingwaves.estimotebeacons/ESTBeaconFirmwareVO.h; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* tissuSubjectif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tissuSubjectif.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* tissuSubjectif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tissuSubjectif.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E002249093246F09B2AF8AC /* ESTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESTBeacon.h; path = pl.makingwaves.estimotebeacons/ESTBeacon.h; sourceTree = "<group>"; };
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = "CordovaLib/CordovaLib.xcodeproj"; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -90,7 +94,11 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* tissuSubjectif-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "tissuSubjectif-Prefix.pch"; sourceTree = "<group>"; };
+		49A5308FCFBA4630A1A84389 /* libEstimoteSDK.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = tissuSubjectif/Plugins/pl.makingwaves.estimotebeacons/libEstimoteSDK.a; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		6267B74FC3C14B5FB1865CE1 /* CDVLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVLogger.m; path = org.apache.cordova.console/CDVLogger.m; sourceTree = "<group>"; };
+		650E66F246B349F5A2AF0B39 /* SystemConfiguration.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		653BAD527DF74148B0F3469D /* ESTBeaconFirmwareInfoVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESTBeaconFirmwareInfoVO.h; path = pl.makingwaves.estimotebeacons/ESTBeaconFirmwareInfoVO.h; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -101,29 +109,22 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
+		85573F65C17949EABBCE621E /* ESTBeaconVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESTBeaconVO.h; path = pl.makingwaves.estimotebeacons/ESTBeaconVO.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* tissuSubjectif-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tissuSubjectif-Info.plist"; path = "../tissuSubjectif-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B1FFAA4AAE464C8C85472145 /* EstimoteBeacons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EstimoteBeacons.h; path = pl.makingwaves.estimotebeacons/EstimoteBeacons.h; sourceTree = "<group>"; };
+		BA65AA057C194D20BE0CBCD4 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
+		C8998918A8A34FA887FFC2A7 /* CoreLocation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D0522EE9844E45CC9246195C /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESTBeaconRegion.h; path = pl.makingwaves.estimotebeacons/ESTBeaconRegion.h; sourceTree = "<group>"; };
+		D1F0AE948FAA4C93878EF5C6 /* CDVLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLogger.h; path = org.apache.cordova.console/CDVLogger.h; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
-		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "tissuSubjectif/config.xml"; sourceTree = "<group>"; };
-		F65E10D987E847D4AE3F2815 /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		BA65AA057C194D20BE0CBCD4 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		6267B74FC3C14B5FB1865CE1 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		D1F0AE948FAA4C93878EF5C6 /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		49A5308FCFBA4630A1A84389 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEstimoteSDK.a"; path = "tissuSubjectif/Plugins/pl.makingwaves.estimotebeacons/libEstimoteSDK.a"; sourceTree = "<group>"; fileEncoding = 4; };
-		0C70883EAD204E5394C73C47 /* EstimoteBeacons.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "EstimoteBeacons.m"; path = "pl.makingwaves.estimotebeacons/EstimoteBeacons.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		1E002249093246F09B2AF8AC /* ESTBeacon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ESTBeacon.h"; path = "pl.makingwaves.estimotebeacons/ESTBeacon.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		F823BCB6BAE146E4BB20D70B /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ESTBeaconDefinitions.h"; path = "pl.makingwaves.estimotebeacons/ESTBeaconDefinitions.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		F5824F7CB8AB405B8E7A826E /* ESTBeaconManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ESTBeaconManager.h"; path = "pl.makingwaves.estimotebeacons/ESTBeaconManager.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		D0522EE9844E45CC9246195C /* ESTBeaconRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ESTBeaconRegion.h"; path = "pl.makingwaves.estimotebeacons/ESTBeaconRegion.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		653BAD527DF74148B0F3469D /* ESTBeaconFirmwareInfoVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ESTBeaconFirmwareInfoVO.h"; path = "pl.makingwaves.estimotebeacons/ESTBeaconFirmwareInfoVO.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		164CC7133EE44500B5AD4896 /* ESTBeaconFirmwareVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ESTBeaconFirmwareVO.h"; path = "pl.makingwaves.estimotebeacons/ESTBeaconFirmwareVO.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		85573F65C17949EABBCE621E /* ESTBeaconVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ESTBeaconVO.h"; path = "pl.makingwaves.estimotebeacons/ESTBeaconVO.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		B1FFAA4AAE464C8C85472145 /* EstimoteBeacons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "EstimoteBeacons.h"; path = "pl.makingwaves.estimotebeacons/EstimoteBeacons.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		EDEF66B5D14449CF89500EFC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreBluetooth.framework"; path = "System/Library/Frameworks/CoreBluetooth.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		C8998918A8A34FA887FFC2A7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		650E66F246B349F5A2AF0B39 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		EDEF66B5D14449CF89500EFC /* CoreBluetooth.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F5824F7CB8AB405B8E7A826E /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESTBeaconManager.h; path = pl.makingwaves.estimotebeacons/ESTBeaconManager.h; sourceTree = "<group>"; };
+		F65E10D987E847D4AE3F2815 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
+		F823BCB6BAE146E4BB20D70B /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESTBeaconDefinitions.h; path = pl.makingwaves.estimotebeacons/ESTBeaconDefinitions.h; sourceTree = "<group>"; };
+		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = tissuSubjectif/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +156,7 @@
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 			);
 			name = Classes;
-			path = "tissuSubjectif/Classes";
+			path = tissuSubjectif/Classes;
 			sourceTree = SOURCE_ROOT;
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -207,7 +208,7 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
-			path = "tissuSubjectif";
+			path = tissuSubjectif;
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -222,7 +223,7 @@
 				8D1107310486CEB800E47090 /* tissuSubjectif-Info.plist */,
 			);
 			name = Resources;
-			path = "tissuSubjectif/Resources";
+			path = tissuSubjectif/Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -265,7 +266,7 @@
 				B1FFAA4AAE464C8C85472145 /* EstimoteBeacons.h */,
 			);
 			name = Plugins;
-			path = "tissuSubjectif/Plugins";
+			path = tissuSubjectif/Plugins;
 			sourceTree = SOURCE_ROOT;
 		};
 		308D052D1370CCF300D202BF /* icons */ = {
@@ -345,8 +346,8 @@
 			dependencies = (
 				301BF551109A68C00062928A /* PBXTargetDependency */,
 			);
-			name = "tissuSubjectif";
-			productName = "tissuSubjectif";
+			name = tissuSubjectif;
+			productName = tissuSubjectif;
 			productReference = 1D6058910D05DD3D006BFB54 /* tissuSubjectif.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -357,8 +358,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 510;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = XX2Q8RBYTD;
+					};
+				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "tissuSubjectif" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -514,6 +520,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -523,6 +531,10 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "tissuSubjectif/tissuSubjectif-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/tissuSubjectif/Plugins/pl.makingwaves.estimotebeacons\"",
+				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -537,12 +549,9 @@
 					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "tissuSubjectif";
+				PRODUCT_NAME = tissuSubjectif;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/tissuSubjectif/Plugins/pl.makingwaves.estimotebeacons\"",
-				);
 			};
 			name = Debug;
 		};
@@ -551,6 +560,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tissuSubjectif/tissuSubjectif-Prefix.pch";
@@ -558,6 +569,10 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "tissuSubjectif/tissuSubjectif-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/tissuSubjectif/Plugins/pl.makingwaves.estimotebeacons\"",
+				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -572,12 +587,9 @@
 					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "tissuSubjectif";
+				PRODUCT_NAME = tissuSubjectif;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/tissuSubjectif/Plugins/pl.makingwaves.estimotebeacons\"",
-				);
 			};
 			name = Release;
 		};
@@ -684,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "tissuSubjectif" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
