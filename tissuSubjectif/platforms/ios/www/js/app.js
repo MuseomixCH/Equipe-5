@@ -1,10 +1,11 @@
 var states = {
     object_description: "id-screen-object",
     search_cold: "id-screen-locating",
-    search_warm: "id-screen-locating"
+    search_warm: "id-screen-locating",
+    visit_end: 'id-screen-end'
 }
 
-var currentId = 1;
+var currentId = 37; // set start object
 var currentSearchId = -1;
 var currentScreenId = 'id-screen-home';
 
@@ -74,6 +75,10 @@ function populateObjectDescription(){
     var relations = Model.relationsForObjectId(currentId);
 
     $('#id-screen-object .choices').html("");
+
+    if (relations.length == 0){
+        $('#id-screen-object .choices').html("la démo est finie, merci!<br>vous pouvez maintenant remplacer un objet");
+    }
 
     $.each(relations, function(index, relation){
         var element = $(createChoiceHTML(relation));
